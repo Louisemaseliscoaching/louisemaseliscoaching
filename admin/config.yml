@@ -1,0 +1,47 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "contenu"
+    label: "Contenu du site"
+    files:
+
+      - label: "Témoignages (FR)"
+        name: "temoignages_fr"
+        file: "content/temoignages-fr.json"
+        fields:
+          - label: "Témoignages"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.author}}"
+            fields:
+              - { label: "Citation", name: "quote", widget: "text" }
+              - { label: "Prénom Nom", name: "author", widget: "string" }
+              - { label: "Contexte", name: "context", widget: "string" }
+
+      - label: "Témoignages (NL)"
+        name: "temoignages_nl"
+        file: "content/temoignages-nl.json"
+        fields:
+          - label: "Getuigenissen"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.author}}"
+            fields:
+              - { label: "Citaat", name: "quote", widget: "text" }
+              - { label: "Naam", name: "author", widget: "string" }
+              - { label: "Context", name: "context", widget: "string" }
+
+      - label: "Informations de contact"
+        name: "contact"
+        file: "content/contact.json"
+        fields:
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Téléphone", name: "phone", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "Adresse", name: "address", widget: "string" }
+          - { label: "Site web", name: "website", widget: "string" }
