@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guide mise en ligne — Louise Maselis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #2C2520;
+    --ink-soft: #7A6A5A;
+    --accent: #9C6B43;
+    --paper: #F5EEE2;
+    --paper-2: #EDE5D4;
+    --white: #FDFAF5;
+    --sage: #6B8C74;
+    --line: #DDD3C4;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Karla', sans-serif;
+    --radius: 12px;
+  }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  .header { background: var(--ink); color: var(--paper); padding: 56px 0 48px; text-align: center; }
+  .header .eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A989; margin-bottom: 16px; }
+  .header h1 { font-family: var(--serif); font-size: clamp(32px,5vw,52px); font-weight: 500; line-height: 1.1; }
+  .header p { margin-top: 16px; font-size: 16px; color: #C9A989; max-width: 48ch; margin-left: auto; margin-right: auto; }
+
+  /* Steps */
+  .steps { padding: 64px 0; }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 24px; margin-bottom: 48px; align-items: start; }
+  .step__num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--accent); color: var(--white);
+    font-family: var(--serif); font-size: 22px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 4px;
+  }
+  .step__body h2 { font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 10px; }
+  .step__body p { font-size: 15px; color: var(--ink-soft); margin-bottom: 12px; line-height: 1.65; }
+  .step__body p + p { margin-top: 8px; }
+  .step__body strong { color: var(--ink); }
+
+  /* Box */
+  .box {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px 24px;
+    margin-top: 16px; font-size: 14px;
+  }
+  .box--accent { border-left: 3px solid var(--accent); }
+  .box--sage { border-left: 3px solid var(--sage); }
+  .box ul { padding-left: 18px; }
+  .box li { margin-bottom: 6px; color: var(--ink-soft); }
+  .box li strong { color: var(--ink); }
+  .box .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+
+  /* Screen mock */
+  .screen {
+    background: #1E1E1E; border-radius: 10px; padding: 14px 18px;
+    font-family: monospace; font-size: 13px; color: #A8D9A0;
+    margin-top: 14px; line-height: 1.7;
+  }
+  .screen .path { color: #7EBAE4; }
+  .screen .cmd { color: #F8F3EA; }
+
+  /* Link button */
+  .btn-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: var(--white);
+    text-decoration: none; font-family: var(--sans); font-weight: 700;
+    font-size: 14px; padding: 10px 20px; border-radius: 999px;
+    margin-top: 14px; transition: opacity .15s;
+  }
+  .btn-link:hover { opacity: .85; }
+  .btn-link--ghost {
+    background: transparent; color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+
+  /* Divider */
+  .divider { border: none; border-top: 1px solid var(--line); margin: 8px 0 40px; }
+
+  /* Footer */
+  .footer { background: var(--ink); color: #C9A989; text-align: center; padding: 32px; font-size: 13px; }
+  .footer strong { color: var(--paper); }
+
+  /* Highlight */
+  .hl { background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 600; font-size: 13px; }
+
+  /* Summary box */
+  .summary { background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: 28px 32px; margin: 48px 0 0; }
+  .summary h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; color: #F8F3EA; margin-bottom: 16px; }
+  .summary ul { padding-left: 18px; }
+  .summary li { margin-bottom: 8px; font-size: 14px; color: #C9A989; }
+  .summary li strong { color: #F8F3EA; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="wrap">
+    <div class="eyebrow">Guide complet</div>
+    <h1>Mettre votre site en ligne</h1>
+    <p>Étape par étape, de zéro à votre site publié — avec panneau d'administration pour modifier votre contenu.</p>
+  </div>
+</div>
+
+<div class="steps">
+  <div class="wrap">
+
+    <!-- ÉTAPE 1 -->
+    <div class="step">
+      <div class="step__num">1</div>
+      <div class="step__body">
+        <h2>Créer un compte GitHub</h2>
+        <p>GitHub est l'endroit où votre site est stocké. C'est gratuit et nécessaire pour que le panneau d'administration fonctionne.</p>
+        <a class="btn-link" href="https://github.com/signup" target="_blank" rel="noopener">→ Créer un compte GitHub</a>
+        <div class="box box--accent" style="margin-top:16px;">
+          <div class="label">Conseil</div>
+          Utilisez la même adresse e-mail que pour Netlify. Choisissez un nom simple, par ex. <span class="hl">louisemaselis</span>.
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- ÉTAPE 2 -->
+    <div class="step">
+      <div class="step__num">2</div>
+      <div class="step__body">
+        <h2>Créer un nouveau dépôt (repository)</h2>
+        <p>Une fois connectée à GitHub, créez un dépôt — c'est le dossier en ligne qui contiendra tous les fichiers de votre site.</p>
+        <div class="box box--accent">
+          <div class="label">Sur GitHub → bouton vert "New"</div>
+          <ul>
+            <li><strong>Repository name :</strong> <span class="hl">louisemaselis-coaching</span></li>
+            <li><strong>Visibility :</strong> cochez <span class="hl">Public</span></li>
+            <li>Laissez tout le reste par défaut</li>
+            <li>Cliquez <strong>"Create repository"</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- ÉTAPE 3 -->
+    <div class="step">
+      <div class="step__num">3</div>
+      <div class="step__body">
+        <h2>Uploader vos fichiers sur GitHub</h2>
+        <p>Dans votre nouveau dépôt vide, cliquez sur <strong>"uploading an existing file"</strong> (lien bleu au centre de la page).</p>
+        <p>Glissez-déposez <strong>tous les fichiers du dossier netlify</strong> que vous avez téléchargé (le ZIP décompressé). Incluez bien les sous-dossiers <span class="hl">admin/</span> et <span class="hl">content/</span>.</p>
+        <div class="box box--accent">
+          <div class="label">Fichiers à uploader</div>
+          <ul>
+            <li><strong>index.html</strong> — votre site FR</li>
+            <li><strong>nl.html</strong> — votre site NL</li>
+            <li><strong>site.css</strong> — les styles</li>
+            <li><strong>cabinet-v3.jpg</strong> — la photo du cabinet</li>
+            <li><strong>image-slot.js</strong> — script photo</li>
+            <li><strong>admin/index.html</strong> + <strong>admin/config.yml</strong></li>
+            <li><strong>content/temoignages-fr.json</strong>, <strong>temoignages-nl.json</strong>, <strong>contact.json</strong></li>
+            <li><strong>_redirects</strong></li>
+          </ul>
+        </div>
+        <p style="margin-top:12px;">En bas de page, cliquez <strong>"Commit changes"</strong> pour sauvegarder.</p>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- ÉTAPE 4 -->
+    <div class="step">
+      <div class="step__num">4</div>
+      <div class="step__body">
+        <h2>Créer un compte Netlify et connecter GitHub</h2>
+        <p>Netlify héberge votre site gratuitement et le remet à jour automatiquement à chaque modification.</p>
+        <a class="btn-link" href="https://app.netlify.com/signup" target="_blank" rel="noopener">→ Créer un compte Netlify</a>
+        <div class="box box--accent" style="margin-top:16px;">
+          <div class="label">Étapes sur Netlify</div>
+          <ul>
+            <li>Connectez-vous avec votre compte <strong>GitHub</strong> (bouton GitHub)</li>
+            <li>Cliquez <strong>"Add new site"</strong> → <strong>"Import an existing project"</strong></li>
+            <li>Choisissez <strong>GitHub</strong> → autorisez Netlify à accéder à vos repos</li>
+            <li>Sélectionnez <strong>louisemaselis-coaching</strong></li>
+            <li>Laissez les paramètres par défaut → cliquez <strong>"Deploy"</strong></li>
+          </ul>
+        </div>
+        <p style="margin-top:12px;">Netlify génère une URL provisoire comme <span class="hl">random-words.netlify.app</span> — votre site est déjà en ligne !</p>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- ÉTAPE 5 -->
+    <div class="step">
+      <div class="step__num">5</div>
+      <div class="step__body">
+        <h2>Activer Netlify Identity</h2>
+        <p>C'est ce qui protège votre panneau d'administration avec un mot de passe.</p>
+        <div class="box box--accent">
+          <div class="label">Dans Netlify → votre site → onglet "Integrations"</div>
+          <ul>
+            <li>Cherchez <strong>"Identity"</strong> et cliquez <strong>"Enable Identity"</strong></li>
+            <li>Dans les paramètres Identity → <strong>Registration</strong> → choisissez <strong>"Invite only"</strong> (seule vous pouvez créer un compte)</li>
+            <li>Cliquez <strong>"Invite users"</strong> → entrez votre adresse e-mail</li>
+            <li>Vous recevrez un e-mail d'invitation — cliquez le lien et créez votre mot de passe</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- ÉTAPE 6 -->
+    <div class="step">
+      <div class="step__num">6</div>
+      <div class="step__body">
+        <h2>Activer Git Gateway</h2>
+        <p>Git Gateway permet au panneau d'administration d'enregistrer vos modifications directement dans GitHub.</p>
+        <div class="box box--accent">
+          <div class="label">Dans Netlify → votre site → "Integrations"</div>
+          <ul>
+            <li>Cherchez <strong>"Git Gateway"</strong> → cliquez <strong>"Enable Git Gateway"</strong></li>
+            <li>C'est tout — ça prend 10 secondes !</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- ÉTAPE 7 -->
+    <div class="step">
+      <div class="step__num">7</div>
+      <div class="step__body">
+        <h2>Connecter votre nom de domaine</h2>
+        <p>Achetez d'abord votre domaine (si ce n'est pas encore fait) sur <strong>Namecheap</strong> ou <strong>Infomaniak</strong> (~12€/an pour un <span class="hl">.be</span>).</p>
+        <a class="btn-link btn-link--ghost" href="https://www.infomaniak.com/fr/domaines" target="_blank" rel="noopener">→ Infomaniak (recommandé, belge)</a>
+        <div class="box box--sage" style="margin-top:16px;">
+          <div class="label">Dans Netlify → "Domain management" → "Add a domain"</div>
+          <ul>
+            <li>Tapez <strong>louisemaseliscoaching.be</strong> → cliquez "Verify"</li>
+            <li>Netlify vous donne <strong>2 nameservers</strong> (ex. <span class="hl">dns1.p01.nsone.net</span>)</li>
+            <li>Sur votre registrar (Infomaniak) → Domaines → DNS → remplacez les nameservers par ceux de Netlify</li>
+            <li>Propagation : <strong>2 à 24 heures</strong> maximum</li>
+            <li>Netlify active automatiquement le <strong>HTTPS</strong> (cadenas vert)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- ÉTAPE 8 -->
+    <div class="step">
+      <div class="step__num">8</div>
+      <div class="step__body">
+        <h2>Accéder au panneau d'administration</h2>
+        <p>Une fois le site en ligne, rendez-vous sur :</p>
+        <div class="screen">
+          <span class="path">https://louisemaseliscoaching.be</span><span class="cmd">/admin</span>
+        </div>
+        <div class="box box--accent" style="margin-top:16px;">
+          <div class="label">Ce que vous pouvez modifier</div>
+          <ul>
+            <li><strong>Témoignages FR & NL</strong> — ajouter, modifier, supprimer</li>
+            <li><strong>Informations de contact</strong> — e-mail, téléphone, adresse, Instagram</li>
+          </ul>
+        </div>
+        <div class="box box--sage" style="margin-top:12px;">
+          <div class="label">Comment ça marche</div>
+          Vous modifiez → cliquez <strong>"Publish"</strong> → Netlify remet votre site à jour en <strong>30 secondes</strong> automatiquement.
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- RÉSUMÉ -->
+    <div class="summary">
+      <h3>Récapitulatif des outils utilisés</h3>
+      <ul>
+        <li><strong>GitHub</strong> — stockage des fichiers (gratuit)</li>
+        <li><strong>Netlify</strong> — hébergement du site (gratuit)</li>
+        <li><strong>Decap CMS</strong> — panneau d'administration à <span class="hl" style="background:rgba(201,169,137,0.15); color:#C9A989;">/admin</span> (gratuit)</li>
+        <li><strong>Infomaniak / Namecheap</strong> — nom de domaine (~12€/an)</li>
+        <li><strong>Netlify Identity</strong> — connexion sécurisée à l'admin (gratuit)</li>
+      </ul>
+    </div>
+
+    <div style="text-align:center; padding: 48px 0 16px;">
+      <div style="font-family:var(--serif); font-size:22px; font-style:italic; color:var(--accent);">
+        « On part de là où vous en êtes. »
+      </div>
+      <p style="font-size:13px; color:var(--ink-soft); margin-top:8px;">Une question ? Écrivez à louisemaselis@icloud.com</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <strong>Louise Maselis</strong> — Coaching & accompagnement des transitions de vie<br />
+  Avenue Molière 278 · 1180 Uccle · louisemaseliscoaching.be
+</div>
+
+</body>
+</html>
