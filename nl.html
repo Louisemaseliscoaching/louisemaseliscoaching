@@ -21,7 +21,7 @@
       <a class="hide-sm" href="#seances">De sessies</a>
       <a class="hide-sm" href="#apropos">Over mij</a>
       <div style="display:flex;align-items:center;gap:0;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.06em;">
-          <a href="Site.html" style="padding:6px 14px;color:var(--ink-soft);text-decoration:none;transition:background .15s;">FR</a>
+          <a href="index.html" style="padding:6px 14px;color:var(--ink-soft);text-decoration:none;transition:background .15s;">FR</a>
           <span style="padding:6px 14px;background:var(--accent);color:var(--white);">NL</span>
         </div>
         <a class="btn btn-primary btn-sm" href="#contact">Neem contact op <span><svg width="18" height="18" viewBox="0 0 64 64" style="display:inline-block;vertical-align:-3px;flex-shrink:0" aria-hidden="true"><path d="M32 6 C47 5 59 17 58 32 C57 47 45 59 30 58 C15 57 5 45 6 30 C7 16 18 5 32 6" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round"/><circle cx="32" cy="32" r="2.25" fill="currentColor"/></svg></span></a>
@@ -305,7 +305,7 @@
     </div>
     <div class="contact__grid">
       <div class="coord">
-        <div class="coord__row"><span class="k">E-mail</span><span class="v"><a href="mailto:louisemaselis@icloud.com">louisemaselis@icloud.com</a></span></div>
+        <div class="coord__row"><span class="k">E-mail</span><span class="v"><a href="/cdn-cgi/l/email-protection#066a69736f75636b6775636a6f75466f656a6973622865696b"><span class="__cf_email__" data-cfemail="6c000319051f09010d1f0900051f2c050f00031908420f0301">[email&#160;protected]</span></a></span></div>
           
           <div class="coord__row"><span class="k">Instagram</span><span class="v"><a href="https://instagram.com/louisemaselis.coaching" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>@louisemaselis.coaching</a></span></div>
           <div class="coord__row"><span class="k">Site</span><span class="v"><a href="https://louisemaseliscoaching.be" target="_blank" rel="noopener">louisemaseliscoaching.be</a></span></div>
@@ -324,6 +324,7 @@
         <div class="field"><label for="e">Jouw e-mailadres</label><input id="e" name="email" type="email" placeholder="om te antwoorden" /></div>
         <div class="field"><label for="m">Jouw bericht</label><textarea id="m" name="message" rows="4" placeholder="Vertel me wat jou hierbrengt…"></textarea></div>
         <button type="submit" class="btn btn-primary" style="align-self:flex-start; border:0; cursor:pointer;">Verzenden <span><svg width="18" height="18" viewBox="0 0 64 64" style="display:inline-block;vertical-align:-3px;flex-shrink:0" aria-hidden="true"><path d="M32 6 C47 5 59 17 58 32 C57 47 45 59 30 58 C15 57 5 45 6 30 C7 16 18 5 32 6" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round"/><circle cx="32" cy="32" r="2.25" fill="currentColor"/></svg></span></button>
+        <div class="form__ok" style="display:none; font-family:var(--serif); font-style:italic; font-size:19px; color:var(--sage-d);">Bedankt, je bericht is verzonden — ik antwoord je zo snel mogelijk.</div>
       </form>
     </div>
   </div>
@@ -337,7 +338,7 @@
       <div class="foot__tag">Duidelijkheid · Helderheid · Vooruit</div>
     </div>
     <div class="foot__meta">
-      <a href="mailto:louisemaselis@icloud.com">louisemaselis@icloud.com</a><br />
+      <a href="/cdn-cgi/l/email-protection#e5898a908c968088849680898c96a58c86898a9081cb868a88"><span class="__cf_email__" data-cfemail="e08c8f958993858d8193858c8993a089838c8f9584ce838f8d">[email&#160;protected]</span></a><br />
                   <a href="https://instagram.com/louisemaselis.coaching" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>@louisemaselis.coaching</a><br />
                   <a href="https://louisemaseliscoaching.be" target="_blank" rel="noopener">louisemaseliscoaching.be</a><br />
       +32 498 47 83 26<br />
@@ -350,6 +351,22 @@
   </div>
 </footer>
 
-<script src="image-slot.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="image-slot.js"></script>
+<script>
+document.querySelectorAll('form[data-netlify="true"]').forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+      .then(function () {
+        form.reset();
+        form.querySelectorAll('.field, button[type="submit"]').forEach(function (el) { el.style.display = 'none'; });
+        var ok = form.querySelector('.form__ok');
+        if (ok) ok.style.display = 'block';
+      })
+      .catch(function () { alert("Er is iets misgegaan — probeer opnieuw of schrijf me rechtstreeks via e-mail."); });
+  });
+});
+</script>
 </body>
 </html>
