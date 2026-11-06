@@ -172,7 +172,7 @@ const T = {
     ctaTitle: "Envie d'en parler ?",
     ctaText: "Le premier pas, c'est souvent d'oser en parler. Réservez un premier entretien ou écrivez-moi : je vous réponds personnellement.",
     articles: 'Journal', articlesPath: '/journal', articlesIntro: 'Des réflexions pour prendre du recul et avancer, nées des questions que se posent les personnes que j’accompagne.',
-    monthly: 'Un nouvel article chaque mois.', illuAlt: 'Illustration : une tasse fumante près d’un carnet ouvert', journalTitle: 'Le journal', allArticles: 'Tout le journal', aboutAuthor: 'Coach de vie certifiée (BAO Academy), j’accompagne les transitions de vie à Uccle et en visio, en français et en néerlandais.', aboutLink: 'En savoir plus sur moi', aboutPath: '/#apropos',
+    monthly: 'Un nouvel article chaque mois.', nlTitle: 'Recevoir le journal par e\u2011mail', nlLabel: 'Votre adresse e-mail', nlButton: 'S’inscrire', nlNote: 'Un e-mail par mois, avec le nouvel article. Votre adresse ne sert qu’à cela ; désinscription sur simple demande.', nlOk: 'Merci, c’est noté ! Vous recevrez le prochain article.', nlError: 'Une erreur s’est produite — réessayez ou écrivez-moi directement par e-mail.', illuAlt: 'Illustration : une tasse fumante près d’un carnet ouvert', journalTitle: 'Le journal', allArticles: 'Tout le journal', aboutAuthor: 'Coach de vie certifiée (BAO Academy), j’accompagne les transitions de vie à Uccle et en visio, en français et en néerlandais.', aboutLink: 'En savoir plus sur moi', aboutPath: '/#apropos',
     read: "Lire l'article", published: 'Publié le',
     serviceType: 'Coaching de vie',
   },
@@ -187,7 +187,7 @@ const T = {
     ctaTitle: 'Zin om erover te praten?',
     ctaText: 'De eerste stap is vaak durven erover te praten. Reserveer een eerste gesprek of stuur me een bericht: ik antwoord je persoonlijk.',
     articles: 'Newsletters', articlesPath: '/nl/newsletters', articlesIntro: 'Reflecties om afstand te nemen en vooruit te gaan, geboren uit de vragen die de mensen die ik begeleid zich stellen.',
-    monthly: 'Elke maand een nieuwe newsletter.', illuAlt: 'Illustratie: een dampende tas naast een notitieboek', journalTitle: 'Newsletters', allArticles: 'Alle newsletters', aboutAuthor: 'Als gecertificeerde life coach (BAO Academy) begeleid ik levenstransities in Ukkel en online, in het Nederlands en het Frans.', aboutLink: 'Meer over mij', aboutPath: '/nl#apropos',
+    monthly: 'Elke maand een nieuwe newsletter.', nlTitle: 'Ontvang de newsletter per e\u2011mail', nlLabel: 'Je e-mailadres', nlButton: 'Inschrijven', nlNote: 'Eén e-mail per maand, met de nieuwe newsletter. Je adres wordt alleen daarvoor gebruikt; uitschrijven kan op eenvoudige vraag.', nlOk: 'Bedankt, genoteerd! Je ontvangt de volgende newsletter.', nlError: 'Er ging iets mis — probeer opnieuw of stuur me rechtstreeks een e-mail.', illuAlt: 'Illustratie: een dampende tas naast een notitieboek', journalTitle: 'Newsletters', allArticles: 'Alle newsletters', aboutAuthor: 'Als gecertificeerde life coach (BAO Academy) begeleid ik levenstransities in Ukkel en online, in het Nederlands en het Frans.', aboutLink: 'Meer over mij', aboutPath: '/nl#apropos',
     read: 'Lees de newsletter', published: 'Gepubliceerd op',
     serviceType: 'Life coaching',
   },
@@ -261,6 +261,37 @@ function articleCards(lang, list) {
     .join('');
 }
 
+function newsletterForm(lang, id) {
+  const t = T[lang];
+  return `
+    <form class="newsletter" name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-error="${esc(t.nlError)}">
+      <input type="hidden" name="form-name" value="newsletter" />
+      <input type="hidden" name="langue" value="${lang}" />
+      <input type="hidden" name="bot-field" />
+      <p class="newsletter__title">${t.nlTitle}</p>
+      <div class="newsletter__row field">
+        <label class="sr-only" for="nl-${id}">${t.nlLabel}</label>
+        <input id="nl-${id}" type="email" name="email" required autocomplete="email" placeholder="${t.nlLabel}" />
+        <button type="submit" class="btn btn-primary">${t.nlButton}</button>
+      </div>
+      <p class="newsletter__note field">${esc(t.nlNote)}</p>
+      <p class="form__ok" style="display:none;">${esc(t.nlOk)}</p>
+    </form>`;
+}
+
+const FORM_SCRIPT = `document.querySelectorAll('form.newsletter').forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() })
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        form.querySelectorAll('.field').forEach(function (el) { el.style.display = 'none'; });
+        form.querySelector('.form__ok').style.display = 'block';
+      })
+      .catch(function () { alert(form.getAttribute('data-error')); });
+  });
+});`;
+
 function applyJournalTeaser(html, lang) {
   const t = T[lang];
   if (!ARTICLES[lang].length) {
@@ -269,7 +300,7 @@ function applyJournalTeaser(html, lang) {
   return mapElements(html, 'id', 'journal-teaser', ({ openTag }) => ({
     openTag,
     inner: `${articleCards(lang, ARTICLES[lang].slice(0, 2))}\n      <p class="journal-all"><a class="btn btn-ghost" href="${t.articlesPath}">${t.allArticles}</a></p>\n    `,
-  }));
+  })).replace('<div class="journal-grid" id="journal-teaser">', newsletterForm(lang, 'accueil') + '\n    <div class="journal-grid" id="journal-teaser">').replace('</body>', `<script>\n${FORM_SCRIPT}\n</script>\n</body>`);
 }
 
 // ---------- FAQ, liens thématiques (page d'accueil) ----------
@@ -398,6 +429,7 @@ function foot(lang) {
 
 <script>
 ${LAYOUT[lang].cal}
+${FORM_SCRIPT}
 </script>
 </body>
 </html>
@@ -586,6 +618,7 @@ ${markdown(a.body)}
         <a href="${t.aboutPath}">${t.aboutLink} →</a>
       </div>
     </aside>
+    ${newsletterForm(lang, 'article')}
   </div>
 </section>
 <section class="section section--ink grain">
@@ -602,7 +635,7 @@ ${markdown(a.body)}
 function renderArticleIndex(lang) {
   const t = T[lang];
   const ld = { '@context': 'https://schema.org', '@type': 'Blog', name: `${t.articles} · Louise Maselis Coaching`, url: SITE + t.articlesPath, inLanguage: t.htmlLang };
-  const items = `<div class="journal-grid">${articleCards(lang, ARTICLES[lang])}</div>`;
+  const items = `${newsletterForm(lang, 'journal')}\n    <div class="journal-grid">${articleCards(lang, ARTICLES[lang])}</div>`;
   return (
     head(lang, { title: `${t.journalTitle} · Louise Maselis Coaching`, description: `${t.articlesIntro} ${t.monthly}`, path: t.articlesPath, altPath: ARTICLES[OTHER[lang]].length ? T[OTHER[lang]].articlesPath : null, ld }) +
     navFor(lang, ARTICLES[OTHER[lang]].length ? T[OTHER[lang]].articlesPath : (lang === 'fr' ? '/nl' : '/')) +
