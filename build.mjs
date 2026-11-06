@@ -26,6 +26,7 @@ const COPY = [
   'louise.webp',
   'louise-600.webp',
   'og-image.jpg',
+  'journal-illustration.svg',
   'cabinet-v3.jpg',
   'admin/index.html',
   'admin/config.yml',
@@ -171,7 +172,7 @@ const T = {
     ctaTitle: "Envie d'en parler ?",
     ctaText: "Le premier pas, c'est souvent d'oser en parler. Réservez un premier entretien ou écrivez-moi : je vous réponds personnellement.",
     articles: 'Journal', articlesPath: '/journal', articlesIntro: 'Des réflexions pour prendre du recul et avancer, nées des questions que se posent les personnes que j’accompagne.',
-    monthly: 'Un nouvel article chaque mois.', journalTitle: 'Le journal', allArticles: 'Tout le journal', aboutAuthor: 'Coach de vie certifiée (BAO Academy), j’accompagne les transitions de vie à Uccle et en visio, en français et en néerlandais.', aboutLink: 'En savoir plus sur moi', aboutPath: '/#apropos',
+    monthly: 'Un nouvel article chaque mois.', illuAlt: 'Illustration : une tasse fumante près d’un carnet ouvert', journalTitle: 'Le journal', allArticles: 'Tout le journal', aboutAuthor: 'Coach de vie certifiée (BAO Academy), j’accompagne les transitions de vie à Uccle et en visio, en français et en néerlandais.', aboutLink: 'En savoir plus sur moi', aboutPath: '/#apropos',
     read: "Lire l'article", published: 'Publié le',
     serviceType: 'Coaching de vie',
   },
@@ -186,7 +187,7 @@ const T = {
     ctaTitle: 'Zin om erover te praten?',
     ctaText: 'De eerste stap is vaak durven erover te praten. Reserveer een eerste gesprek of stuur me een bericht: ik antwoord je persoonlijk.',
     articles: 'Journal', articlesPath: '/nl/journal', articlesIntro: 'Reflecties om afstand te nemen en vooruit te gaan, geboren uit de vragen die de mensen die ik begeleid zich stellen.',
-    monthly: 'Elke maand een nieuw artikel.', journalTitle: 'Het journal', allArticles: 'Het volledige journal', aboutAuthor: 'Als gecertificeerde life coach (BAO Academy) begeleid ik levenstransities in Ukkel en online, in het Nederlands en het Frans.', aboutLink: 'Meer over mij', aboutPath: '/nl#apropos',
+    monthly: 'Elke maand een nieuw artikel.', illuAlt: 'Illustratie: een dampende tas naast een open notitieboek', journalTitle: 'Het journal', allArticles: 'Het volledige journal', aboutAuthor: 'Als gecertificeerde life coach (BAO Academy) begeleid ik levenstransities in Ukkel en online, in het Nederlands en het Frans.', aboutLink: 'Meer over mij', aboutPath: '/nl#apropos',
     read: 'Lees het artikel', published: 'Gepubliceerd op',
     serviceType: 'Life coaching',
   },
@@ -607,10 +608,13 @@ function renderArticleIndex(lang) {
     navFor(lang, ARTICLES[OTHER[lang]].length ? T[OTHER[lang]].articlesPath : (lang === 'fr' ? '/nl' : '/')) +
     `
 <header class="hero grain theme-hero" id="top">
-  <div class="wrap" style="max-width:860px;">
-    <div class="eyebrow">${t.monthly}</div>
-    <h1>${t.journalTitle}</h1>
-    <p class="lede">${t.articlesIntro}</p>
+  <div class="wrap journal-hero">
+    <div>
+      <div class="eyebrow">${t.monthly}</div>
+      <h1>${t.journalTitle}</h1>
+      <p class="lede">${t.articlesIntro}</p>
+    </div>
+    <img class="journal-illu" src="/journal-illustration.svg" width="360" height="260" alt="${t.illuAlt}" />
   </div>
 </header>
 <section class="section">
