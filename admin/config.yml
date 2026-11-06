@@ -242,7 +242,7 @@ collections:
     fields: *theme_fields
 
   - name: "articles_fr"
-    label: "Articles (FR)"
+    label: "Journal (FR)"
     folder: "content/articles/fr"
     extension: "json"
     format: "json"
@@ -252,13 +252,14 @@ collections:
     fields: &article_fields
       - { label: "Titre", name: "title", widget: "string" }
       - { label: "Adresse (ex. reconversion-par-ou-commencer)", name: "slug", widget: "string", pattern: ["^[a-z0-9-]+$", "Minuscules, chiffres et tirets uniquement"] }
+      - { label: "Article équivalent dans l'autre langue (adresse, facultatif)", name: "alt_slug", widget: "string", required: false }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
       - { label: "Résumé pour Google (≈ 155 caractères)", name: "description", widget: "text" }
       - { label: "Texte (## pour un intertitre, - pour une liste, **gras**)", name: "body", widget: "markdown", buttons: ["bold", "link", "heading-two", "heading-three", "bulleted-list"], editor_components: [], modes: ["raw"] }
       - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: true }
 
   - name: "articles_nl"
-    label: "Artikels (NL)"
+    label: "Journal (NL)"
     folder: "content/articles/nl"
     extension: "json"
     format: "json"

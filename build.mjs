@@ -170,7 +170,8 @@ const T = {
     themesIntro: 'Découvrir les accompagnements :',
     ctaTitle: "Envie d'en parler ?",
     ctaText: "Le premier pas, c'est souvent d'oser en parler. Réservez un premier entretien ou écrivez-moi : je vous réponds personnellement.",
-    articles: 'Articles', articlesPath: '/articles', articlesIntro: 'Des réflexions pour avancer, sur les questions que se posent les personnes que j’accompagne.',
+    articles: 'Journal', articlesPath: '/journal', articlesIntro: 'Des réflexions pour prendre du recul et avancer, nées des questions que se posent les personnes que j’accompagne.',
+    monthly: 'Un nouvel article chaque mois.', journalTitle: 'Le journal', allArticles: 'Tout le journal', aboutAuthor: 'Coach de vie certifiée (BAO Academy), j’accompagne les transitions de vie à Uccle et en visio, en français et en néerlandais.', aboutLink: 'En savoir plus sur moi', aboutPath: '/#apropos',
     read: "Lire l'article", published: 'Publié le',
     serviceType: 'Coaching de vie',
   },
@@ -184,7 +185,8 @@ const T = {
     themesIntro: 'Ontdek de begeleidingen:',
     ctaTitle: 'Zin om erover te praten?',
     ctaText: 'De eerste stap is vaak durven erover te praten. Reserveer een eerste gesprek of stuur me een bericht: ik antwoord je persoonlijk.',
-    articles: 'Artikels', articlesPath: '/nl/artikels', articlesIntro: 'Reflecties om vooruit te gaan, over de vragen die de mensen die ik begeleid zich stellen.',
+    articles: 'Journal', articlesPath: '/nl/journal', articlesIntro: 'Reflecties om afstand te nemen en vooruit te gaan, geboren uit de vragen die de mensen die ik begeleid zich stellen.',
+    monthly: 'Elke maand een nieuw artikel.', journalTitle: 'Het journal', allArticles: 'Het volledige journal', aboutAuthor: 'Als gecertificeerde life coach (BAO Academy) begeleid ik levenstransities in Ukkel en online, in het Nederlands en het Frans.', aboutLink: 'Meer over mij', aboutPath: '/nl#apropos',
     read: 'Lees het artikel', published: 'Gepubliceerd op',
     serviceType: 'Life coaching',
   },
@@ -234,6 +236,39 @@ function markdown(src) {
       return `<p>${inline(lines.join(' '))}</p>`;
     })
     .join('\n');
+}
+
+const fmtDate = (lang, d) => (d ? new Date(d).toLocaleDateString(lang === 'fr' ? 'fr-BE' : 'nl-BE', { day: 'numeric', month: 'long', year: 'numeric' }) : '');
+const articleAlt = (lang, a) => {
+  const o = OTHER[lang];
+  const alt = a.alt_slug && ARTICLES[o].find((x) => x.slug === a.alt_slug);
+  return alt ? `${T[o].articlesPath}/${alt.slug}` : null;
+};
+
+function articleCards(lang, list) {
+  const t = T[lang];
+  return list
+    .map(
+      (a) => `
+      <article class="journal-card">
+        <p class="journal-card__date">${fmtDate(lang, a.date)}</p>
+        <h3><a href="${t.articlesPath}/${a.slug}">${esc(a.title)}</a></h3>
+        ${a.description ? `<p>${esc(a.description)}</p>` : ''}
+        <a class="journal-card__more" href="${t.articlesPath}/${a.slug}">${t.read} <span aria-hidden="true">→</span></a>
+      </article>`
+    )
+    .join('');
+}
+
+function applyJournalTeaser(html, lang) {
+  const t = T[lang];
+  if (!ARTICLES[lang].length) {
+    return html.replace(/<section class="section section--soft grain journal-section" id="journal">[\s\S]*?<\/section>\n*/, '');
+  }
+  return mapElements(html, 'id', 'journal-teaser', ({ openTag }) => ({
+    openTag,
+    inner: `${articleCards(lang, ARTICLES[lang].slice(0, 2))}\n      <p class="journal-all"><a class="btn btn-ghost" href="${t.articlesPath}">${t.allArticles}</a></p>\n    `,
+  }));
 }
 
 // ---------- FAQ, liens thématiques (page d'accueil) ----------
@@ -516,7 +551,7 @@ function renderArticle(lang, a) {
         inLanguage: t.htmlLang,
         mainEntityOfPage: SITE + path,
         image: a.image ? SITE + a.image : `${SITE}/og-image.jpg`,
-        author: { '@id': `${SITE}/#louise` },
+        author: { '@type': 'Person', '@id': `${SITE}/#louise`, name: 'Louise Maselis', url: SITE + t.aboutPath },
         publisher: { '@id': `${SITE}/#cabinet` },
       },
       breadcrumb(lang, [
@@ -526,10 +561,11 @@ function renderArticle(lang, a) {
       ]),
     ],
   };
-  const date = a.date ? new Date(a.date).toLocaleDateString(lang === 'fr' ? 'fr-BE' : 'nl-BE', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+  const date = fmtDate(lang, a.date);
+  const altPath = articleAlt(lang, a);
   return (
-    head(lang, { title: `${a.title} | Louise Maselis Coaching`, description: a.description || '', path, altPath: null, ld }) +
-    navFor(lang, lang === 'fr' ? '/nl' : '/') +
+    head(lang, { title: a.title, description: a.description || '', path, altPath, ld }) +
+    navFor(lang, altPath || (lang === 'fr' ? '/nl' : '/')) +
     `
 <header class="hero grain theme-hero" id="top">
   <div class="wrap" style="max-width:860px;">
@@ -541,6 +577,14 @@ function renderArticle(lang, a) {
 <section class="section">
   <div class="wrap prose">
 ${markdown(a.body)}
+    <aside class="author-box">
+      <img src="/louise-600.webp" width="600" height="750" alt="Louise Maselis" loading="lazy" decoding="async" />
+      <div>
+        <p class="author-box__name">Louise Maselis</p>
+        <p>${t.aboutAuthor}</p>
+        <a href="${t.aboutPath}">${t.aboutLink} →</a>
+      </div>
+    </aside>
   </div>
 </section>
 <section class="section section--ink grain">
@@ -557,28 +601,20 @@ ${markdown(a.body)}
 function renderArticleIndex(lang) {
   const t = T[lang];
   const ld = { '@context': 'https://schema.org', '@type': 'Blog', name: `${t.articles} · Louise Maselis Coaching`, url: SITE + t.articlesPath, inLanguage: t.htmlLang };
-  const items = ARTICLES[lang]
-    .map(
-      (a) => `
-    <article class="seance" style="margin-bottom:var(--s-3);">
-      <h2 style="font-size:28px; margin:0 0 8px;"><a href="${t.articlesPath}/${a.slug}" style="color:inherit; text-decoration:none;">${esc(a.title)}</a></h2>
-      ${a.description ? `<p>${esc(a.description)}</p>` : ''}
-      <a href="${t.articlesPath}/${a.slug}" style="color:var(--accent); font-weight:700;">${t.read} →</a>
-    </article>`
-    )
-    .join('');
+  const items = `<div class="journal-grid">${articleCards(lang, ARTICLES[lang])}</div>`;
   return (
-    head(lang, { title: `${t.articles} | Louise Maselis Coaching`, description: t.articlesIntro, path: t.articlesPath, altPath: null, ld }) +
-    navFor(lang, lang === 'fr' ? '/nl' : '/') +
+    head(lang, { title: `${t.journalTitle} · Louise Maselis Coaching`, description: `${t.articlesIntro} ${t.monthly}`, path: t.articlesPath, altPath: ARTICLES[OTHER[lang]].length ? T[OTHER[lang]].articlesPath : null, ld }) +
+    navFor(lang, ARTICLES[OTHER[lang]].length ? T[OTHER[lang]].articlesPath : (lang === 'fr' ? '/nl' : '/')) +
     `
 <header class="hero grain theme-hero" id="top">
   <div class="wrap" style="max-width:860px;">
-    <h1>${t.articles}</h1>
+    <div class="eyebrow">${t.monthly}</div>
+    <h1>${t.journalTitle}</h1>
     <p class="lede">${t.articlesIntro}</p>
   </div>
 </header>
 <section class="section">
-  <div class="wrap prose">${items}
+  <div class="wrap">${items}
   </div>
 </section>
 ` +
@@ -604,6 +640,7 @@ for (const page of PAGES) {
   html = applyContact(html, contact);
   html = applyFaq(html, readJSON(`content/faq-${page.lang}.json`));
   html = applyThemeSlots(html, page.lang);
+  html = applyJournalTeaser(html, page.lang);
   captureLayout(page.lang, html);
   writeFileSync(join(OUT, page.out), html);
   console.log(`✓ ${page.out} généré (${page.lang})`);
@@ -629,11 +666,14 @@ for (const lang of ['fr', 'nl']) {
     const t = T[lang];
     writeFileSync(join(OUT, 'p', lang, 'articles.html'), renderArticleIndex(lang));
     redirects.push(`${t.articlesPath}  /p/${lang}/articles.html  200`);
-    sitemap.push({ [lang]: t.articlesPath, single: true });
+    if (lang === 'fr' && ARTICLES.nl.length) sitemap.push({ fr: t.articlesPath, nl: T.nl.articlesPath });
+    else if (!(lang === 'nl' && ARTICLES.fr.length)) sitemap.push({ [lang]: t.articlesPath });
     for (const a of ARTICLES[lang]) {
       writeFileSync(join(OUT, 'p', lang, `article-${a.slug}.html`), renderArticle(lang, a));
       redirects.push(`${t.articlesPath}/${a.slug}  /p/${lang}/article-${a.slug}.html  200`);
-      sitemap.push({ [lang]: `${t.articlesPath}/${a.slug}`, single: true });
+      const alt = articleAlt(lang, a);
+      if (lang === 'fr' && alt) sitemap.push({ fr: `${t.articlesPath}/${a.slug}`, nl: alt });
+      else if (!(lang === 'nl' && alt)) sitemap.push({ [lang]: `${t.articlesPath}/${a.slug}` });
       console.log(`✓ article ${t.articlesPath}/${a.slug}`);
     }
   }
