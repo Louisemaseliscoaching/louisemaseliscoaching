@@ -1,51 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" role="img" aria-labelledby="t">
-  <title id="t">Une tasse fumante posée près d'un carnet ouvert</title>
-  <g fill="none" stroke="#3B3029" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <!-- carnet ouvert -->
-    <path d="M28 196 C70 186 112 188 150 199 C188 188 230 185 270 194" fill="#FDFAF5"/>
-    <path d="M36 92 C72 84 112 86 150 98 L150 199 C112 188 72 186 30 195 Z" fill="#FDFAF5"/>
-    <path d="M150 98 C186 86 226 83 262 91 L268 193 C228 185 188 188 150 199 Z" fill="#FDFAF5"/>
-    <path d="M150 98 C151 132 149 166 150 199" stroke-width="1.6"/>
-    <!-- lignes d'écriture, page gauche -->
-    <g stroke="#9C8B7A" stroke-width="1.5">
-      <path d="M52 116 C78 111 104 112 134 119"/>
-      <path d="M50 132 C80 127 102 128 132 135"/>
-      <path d="M50 148 C74 144 96 145 118 150"/>
-      <path d="M48 164 C70 160 92 161 126 168"/>
-    </g>
-    <!-- page droite : petit soleil griffonné + deux lignes -->
-    <path d="M206 120 C219 119 229 129 228 141 C227 153 217 162 204 161 C192 160 183 150 184 138 C185 127 194 120 206 120" stroke="#9C6B43" stroke-width="2"/>
-    <circle cx="206" cy="140" r="4" fill="#9C6B43" stroke="none"/>
-    <g stroke="#9C8B7A" stroke-width="1.5">
-      <path d="M176 176 C200 172 222 172 250 177"/>
-    </g>
-    <!-- crayon -->
-    <path d="M226 214 L300 172 L308 180 L234 222 Z" fill="#E9D9C2"/>
-    <path d="M226 214 L218 226 L234 222" fill="#3B3029"/>
-    <path d="M300 172 L308 180" stroke-width="3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-labelledby="t">
+  <title id="t">Une tasse fumante posée près d'un carnet</title>
+  <style>
+    .ink { fill: none; stroke: #2C2520; stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
+    .soft { stroke: #2C2520; opacity: .55; }
+    .accent { stroke: #9C6B43; }
+    .steam path {
+      fill: none; stroke: #2C2520; stroke-width: 1.1; stroke-linecap: round; opacity: 0;
+      stroke-dasharray: 90 90;
+      animation: rise 4.2s ease-in-out infinite;
+    }
+    .steam path:nth-child(2) { animation-delay: 1.4s; }
+    .steam path:nth-child(3) { animation-delay: 2.8s; }
+    @keyframes rise {
+      0%   { opacity: 0;   stroke-dashoffset: 90;  transform: translate(0, 6px); }
+      30%  { opacity: .8; }
+      65%  { opacity: .55; }
+      100% { opacity: 0;   stroke-dashoffset: -90; transform: translate(2px, -14px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .steam path { animation: none; opacity: .5; stroke-dashoffset: 0; }
+    }
+  </style>
 
-    <!-- soucoupe -->
-    <path d="M222 132 C248 150 316 150 338 131" />
-    <path d="M216 128 C240 140 318 140 344 126 C346 120 336 117 330 118" fill="#F5EEE2"/>
-    <!-- tasse -->
-    <path d="M238 72 C238 100 244 124 262 132 C276 138 296 137 310 130 C326 122 330 96 330 72 Z" fill="#EBC7A6"/>
-    <path d="M238 72 C252 66 316 66 330 72 C316 79 252 79 238 72 Z" fill="#7A5232"/>
-    <path d="M329 84 C350 80 356 100 344 110 C338 115 330 115 324 113"/>
-    <!-- petit motif sur la tasse -->
-    <path d="M284 92 C292 92 297 98 296 105 C295 112 289 116 282 115 C275 114 271 108 272 101 C273 95 278 92 284 92" stroke="#FDFAF5" stroke-width="1.8"/>
-    <circle cx="284" cy="104" r="2.6" fill="#FDFAF5" stroke="none"/>
-    <!-- vapeur -->
-    <g stroke="#9C6B43" stroke-width="2">
-      <path d="M268 58 C258 46 278 38 268 24"/>
-      <path d="M288 54 C280 40 300 32 290 16"/>
-      <path d="M306 58 C298 48 314 42 308 30"/>
-    </g>
-    <!-- brin de feuillage -->
-    <g stroke="#6B8C74" stroke-width="2">
-      <path d="M22 230 C46 214 70 206 104 204"/>
-      <path d="M44 219 C40 206 48 198 58 196 C60 208 54 216 44 219 Z" fill="#CFDCCB"/>
-      <path d="M66 211 C66 198 76 192 86 192 C86 204 78 210 66 211 Z" fill="#CFDCCB"/>
-      <path d="M56 214 C60 226 72 230 82 228 C78 218 68 212 56 214 Z" fill="#CFDCCB"/>
-    </g>
+  <!-- ligne de table -->
+  <path class="ink" d="M14 204 C70 202.5 120 204.5 176 203 C226 202 272 204.5 308 203"/>
+  <path class="ink soft" d="M40 209 C60 208.5 74 209.3 92 208.8"/>
+
+  <!-- carnet fermé, vu légèrement de biais -->
+  <path class="ink" d="M34 196 L70 160.5 C104 160 136 160.8 168 160.2 L136 196.4 C102 196.9 68 196.2 34 196 Z"/>
+  <path class="ink" d="M34 196 L34.4 201.6 C68 202.1 102 202.6 136.2 202 L136 196.4"/>
+  <path class="ink" d="M136.2 202 L168.3 165.6 L168 160.2"/>
+  <!-- élastique -->
+  <path class="ink soft" d="M148 160.4 L117 196.4"/>
+  <!-- petit soleil sur la couverture -->
+  <path class="ink accent" d="M101 172.5 C106 172 109.6 175.8 109.2 180 C108.8 184.4 104.8 187.4 100.2 187 C95.8 186.5 92.6 182.8 93 178.6 C93.4 174.8 96.8 172.7 101 172.5"/>
+  <circle cx="101.1" cy="179.8" r="1.6" fill="#9C6B43"/>
+  <!-- crayon posé -->
+  <path class="ink" d="M58 214 L150 186.5 L152.4 192 L60.6 219.4 Z"/>
+  <path class="ink" d="M58 214 L48.5 218.7 L60.6 219.4"/>
+  <path class="ink" d="M141 189.2 L143.5 194.8"/>
+
+  <!-- soucoupe -->
+  <path class="ink" d="M190 196.5 C206 205.5 268 206 286 196.2"/>
+  <path class="ink" d="M184 193.6 C200 199.6 274 200.4 292 193 C295 190.6 290.5 188.4 284 188"/>
+  <path class="ink" d="M184 193.6 C182.6 191.6 186 189.4 193 188.4"/>
+  <!-- tasse -->
+  <g transform="translate(0 5.5)">
+  <path class="ink" d="M198 128.6 C198.4 154 202 174.5 214.6 184 C224 190.4 252 190.6 262.4 183.6 C274.8 174.8 278.2 154.2 278.4 128.8"/>
+  <path class="ink" d="M198 128.6 C212 123.4 264 123.2 278.4 128.8 C264.6 134.2 212.4 134.4 198 128.6 Z"/>
+  <path class="ink soft" d="M206 131.6 C222 134.6 254 134.8 270.6 131.8"/>
+  <!-- anse -->
+  <path class="ink" d="M277.6 141.4 C293.6 137.6 300.2 151.4 293.4 161.6 C289.2 167.6 281.4 169 274.6 166.6"/>
+  <path class="ink soft" d="M277.2 148.2 C286.4 146.4 289.4 154.4 285.2 159.4 C282.8 162 279.4 162.4 276.2 161.4"/>
+
+  </g>
+
+  <!-- vapeur animée -->
+  <g class="steam" transform="translate(0 5.5)">
+    <path d="M222 116 C214 104 230 96 222 82 C216 72 226 64 222 54"/>
+    <path d="M238 114 C230 100 248 92 238 76 C232 66 244 58 240 46"/>
+    <path d="M254 116 C246 104 262 96 254 84 C249 76 258 68 255 60"/>
   </g>
 </svg>
