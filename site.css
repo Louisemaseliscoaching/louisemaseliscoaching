@@ -92,6 +92,8 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; margin: 0; color: 
 }
 .nav__links a:hover { color: var(--accent); }
 @media (max-width: 860px) { .nav__links .hide-sm { display: none; } }
+.nav__links .show-sm { display: none; }
+@media (max-width: 860px) { .nav__links .btn-sm span.show-sm { display: inline; } }
 @media (max-width: 560px) {
   .nav__in { height: 64px; }
   .brand b { font-size: 19px; }
