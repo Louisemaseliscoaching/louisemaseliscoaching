@@ -9,13 +9,23 @@
 <link rel="alternate" hreflang="fr-BE" href="https://louisemaseliscoaching.be/" />
 <link rel="alternate" hreflang="nl-BE" href="https://louisemaseliscoaching.be/nl" />
 <link rel="alternate" hreflang="x-default" href="https://louisemaseliscoaching.be/" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#F5EEE2" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_BE" />
 <meta property="og:title" content="Life coach in Ukkel, Brussel | Louise Maselis Coaching" />
 <meta property="og:description" content="Individuele coaching in Ukkel en online: levenstransities, zingeving, burn-out, ouderschap. Eerste gesprek van 1 uur. In het Nederlands en Frans." />
 <meta property="og:url" content="https://louisemaseliscoaching.be/nl" />
-<meta property="og:image" content="https://louisemaseliscoaching.be/cabinet-v3.jpg" />
+<meta property="og:image" content="https://louisemaseliscoaching.be/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="De coachingpraktijk van Louise Maselis in Ukkel" />
+<meta property="og:site_name" content="Louise Maselis Coaching" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://louisemaseliscoaching.be/og-image.jpg" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,18 +36,24 @@
       "name": "Louise Maselis Coaching",
       "description": "Individuele coaching bij levenstransities in Ukkel en online: zingeving, burn-out, ouderschap, professionele verandering.",
       "url": "https://louisemaseliscoaching.be/nl",
-      "image": "https://louisemaseliscoaching.be/cabinet-v3.jpg",
+      "image": "https://louisemaseliscoaching.be/og-image.jpg",
+      "logo": "https://louisemaseliscoaching.be/icon-512.png",
       "telephone": "+32498478326",
       "email": "louisemaselis@icloud.com",
       "address": {"@type":"PostalAddress","streetAddress":"Avenue Molière 278","postalCode":"1180","addressLocality":"Uccle","addressRegion":"Bruxelles-Capitale","addressCountry":"BE"},
+      "geo": {"@type":"GeoCoordinates","latitude":50.8157898,"longitude":4.3598004},
+      "hasMap": "https://maps.google.com/?cid=11953524549869612857",
       "areaServed": ["Uccle","Forest","Ixelles","Bruxelles","Rhode-Saint-Genèse","Waterloo","Braine-l'Alleud"],
       "availableLanguage": ["fr","nl"],
+      "knowsLanguage": ["fr","nl"],
       "sameAs": ["https://instagram.com/louisemaselis.coaching"],
       "founder": {"@id":"https://louisemaseliscoaching.be/#louise"}
     },
     {
       "@type": "Person",
       "@id": "https://louisemaseliscoaching.be/#louise",
+      "url": "https://louisemaseliscoaching.be/nl#apropos",
+      "worksFor": {"@id":"https://louisemaseliscoaching.be/#cabinet"},
       "name": "Louise Maselis",
       "jobTitle": "Gecertificeerde coach",
       "knowsLanguage": ["fr","nl"],
@@ -64,7 +80,7 @@
       <a class="hide-sm" href="#seances">De sessies</a>
       <a class="hide-sm" href="#apropos">Over mij</a>
       <div style="display:flex;align-items:center;gap:0;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.06em;flex-shrink:0;">
-          <a href="index.html" style="padding:6px 14px;line-height:1.4;color:var(--ink-soft);text-decoration:none;transition:background .15s;">FR</a>
+          <a href="/" style="padding:6px 14px;line-height:1.4;color:var(--ink-soft);text-decoration:none;transition:background .15s;">FR</a>
           <span style="padding:6px 14px;line-height:1.4;background:var(--accent);color:var(--white);">NL</span>
         </div>
         <a class="btn btn-primary btn-sm" href="#contact" style="flex-shrink:0;">Neem contact op <span><svg width="18" height="18" viewBox="0 0 64 64" style="display:inline-block;vertical-align:-3px;flex-shrink:0" aria-hidden="true"><path d="M32 6 C47 5 59 17 58 32 C57 47 45 59 30 58 C15 57 5 45 6 30 C7 16 18 5 32 6" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round"/><circle cx="32" cy="32" r="2.25" fill="currentColor"/></svg></span></a>
@@ -76,8 +92,7 @@
 <header class="hero grain" id="top">
   <div class="wrap hero__grid">
     <div>
-      <div class="eyebrow" data-field="hero_eyebrow">Coaching · levenstransities</div>
-      <h1><span data-field="hero_title">Zin, richting, gedrevenheid.</span><br /><span class="sun" data-field="hero_title_italic" style="font-style:italic; font-family:var(--serif);">Op jouw tempo.</span></h1>
+      <h1><span class="eyebrow" data-field="hero_eyebrow" style="display:flex; line-height:1.4; margin-bottom:0.15em;">Coaching · levenstransities</span><span data-field="hero_title">Zin, richting, gedrevenheid.</span><br /><span class="sun" data-field="hero_title_italic" style="font-style:italic; font-family:var(--serif);">Op jouw tempo.</span></h1>
       <p class="lede" data-field="hero_lede">
         Ik begeleid mensen die zichzelf niet meer helemaal herkennen
           in hun dagelijks leven — bij levenstransities, privé
@@ -307,7 +322,7 @@
   <div class="wrap about">
     <div class="about__grid">
       <div class="about__media">
-        <img src="cabinet-v3.jpg" alt="Le cabinet de Louise Maselis, avenue Molière à Uccle" loading="lazy" decoding="async" style="width:100%; height:520px; object-fit:cover; border-radius:10px; box-shadow:0 18px 44px rgba(40,30,20,0.12); display:block;" />
+        <img src="/cabinet.webp" srcset="/cabinet-800.webp 800w, /cabinet.webp 1200w" sizes="(max-width: 860px) 100vw, 45vw" width="1200" height="900" alt="De praktijkruimte van Louise Maselis, Molièrelaan in Ukkel" loading="lazy" decoding="async" style="width:100%; height:520px; object-fit:cover; border-radius:10px; box-shadow:0 18px 44px rgba(40,30,20,0.12); display:block;" />
       </div>
       <div>
         <div class="eyebrow" data-field="apropos_sep">Over mij</div>
@@ -392,8 +407,6 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="image-slot.js"></script>
-<script src="content-loader.js" data-lang="nl"></script>
 <script>
 document.querySelectorAll('form[data-netlify="true"]').forEach(function (form) {
   form.addEventListener('submit', function (e) {
