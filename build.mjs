@@ -186,9 +186,9 @@ const T = {
     themesIntro: 'Ontdek de begeleidingen:',
     ctaTitle: 'Zin om erover te praten?',
     ctaText: 'De eerste stap is vaak durven erover te praten. Reserveer een eerste gesprek of stuur me een bericht: ik antwoord je persoonlijk.',
-    articles: 'Journal', articlesPath: '/nl/journal', articlesIntro: 'Reflecties om afstand te nemen en vooruit te gaan, geboren uit de vragen die de mensen die ik begeleid zich stellen.',
-    monthly: 'Elke maand een nieuw artikel.', illuAlt: 'Illustratie: een dampende tas naast een open notitieboek', journalTitle: 'Het journal', allArticles: 'Het volledige journal', aboutAuthor: 'Als gecertificeerde life coach (BAO Academy) begeleid ik levenstransities in Ukkel en online, in het Nederlands en het Frans.', aboutLink: 'Meer over mij', aboutPath: '/nl#apropos',
-    read: 'Lees het artikel', published: 'Gepubliceerd op',
+    articles: 'Newsletters', articlesPath: '/nl/newsletters', articlesIntro: 'Reflecties om afstand te nemen en vooruit te gaan, geboren uit de vragen die de mensen die ik begeleid zich stellen.',
+    monthly: 'Elke maand een nieuwe newsletter.', illuAlt: 'Illustratie: een dampende tas naast een notitieboek', journalTitle: 'Newsletters', allArticles: 'Alle newsletters', aboutAuthor: 'Als gecertificeerde life coach (BAO Academy) begeleid ik levenstransities in Ukkel en online, in het Nederlands en het Frans.', aboutLink: 'Meer over mij', aboutPath: '/nl#apropos',
+    read: 'Lees de newsletter', published: 'Gepubliceerd op',
     serviceType: 'Life coaching',
   },
 };

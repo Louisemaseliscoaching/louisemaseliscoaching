@@ -259,7 +259,7 @@ collections:
       - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: true }
 
   - name: "articles_nl"
-    label: "Journal (NL)"
+    label: "Newsletters (NL)"
     folder: "content/articles/nl"
     extension: "json"
     format: "json"
