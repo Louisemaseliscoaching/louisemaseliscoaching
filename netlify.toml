@@ -1,0 +1,22 @@
+# Configuration Netlify
+# À chaque modification (depuis /admin ou GitHub), Netlify lance build.mjs, qui
+# inscrit les textes de content/*.json dans les pages et prépare le dossier dist/.
+# Seul dist/ est publié : les fichiers de travail du dépôt ne sont plus en ligne.
+
+[build]
+  command = "node build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Les images, icônes et la feuille de style changent rarement : cache navigateur d'un mois.
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/og-image.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
