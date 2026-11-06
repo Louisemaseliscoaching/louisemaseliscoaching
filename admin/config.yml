@@ -62,6 +62,7 @@ collections:
           - { label: "Séance 2 — Titre", name: "seance2_title", widget: "string" }
           - { label: "Séance 2 — Description", name: "seance2_desc", widget: "text" }
           - { label: "Séance 2 — Durée", name: "seance2_dur", widget: "string" }
+          - { label: "Tarif", name: "seances_tarif", widget: "string" }
 
           - { label: "— TÉMOIGNAGES —", name: "temoignages_sep", widget: "string" }
           - { label: "Titre", name: "temoignages_title", widget: "string" }
@@ -124,6 +125,7 @@ collections:
           - { label: "Sessie 2 — Titel", name: "seance2_title", widget: "string" }
           - { label: "Sessie 2 — Beschrijving", name: "seance2_desc", widget: "text" }
           - { label: "Sessie 2 — Duur", name: "seance2_dur", widget: "string" }
+          - { label: "Tarief", name: "seances_tarif", widget: "string" }
           - { label: "— GETUIGENISSEN —", name: "temoignages_sep", widget: "string" }
           - { label: "Titel", name: "temoignages_title", widget: "string" }
           - { label: "Introductie", name: "temoignages_intro", widget: "text" }
