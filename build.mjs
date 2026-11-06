@@ -25,6 +25,8 @@ const COPY = [
   'icon-512.png',
   'cabinet.webp',
   'cabinet-800.webp',
+  'louise.webp',
+  'louise-600.webp',
   'og-image.jpg',
   'cabinet-v3.jpg',
   'admin/index.html',
