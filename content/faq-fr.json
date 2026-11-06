@@ -1,0 +1,38 @@
+{
+  "title": "Vos questions, mes réponses",
+  "intro": "Ce que l'on me demande le plus souvent avant un premier entretien.",
+  "items": [
+    {
+      "q": "Combien coûte une séance de coaching ?",
+      "a": "Une séance coûte 75 €. Le premier entretien (environ 1 h) est lui aussi payant, mais il est offert si un accompagnement suit dans la foulée."
+    },
+    {
+      "q": "Combien de temps dure un accompagnement ?",
+      "a": "Après le premier entretien, on avance à partir de 3 séances, selon vos besoins et votre rythme. Chaque séance dure jusqu'à 1 h 30. Le nombre total de séances se décide ensemble, au fil du chemin."
+    },
+    {
+      "q": "Quelle différence entre un coach et un psychologue ?",
+      "a": "Le psychologue est un professionnel de la santé : il évalue et soigne la souffrance psychique. En Belgique, ce titre est protégé. Le coach accompagne une personne qui veut clarifier une situation, retrouver du sens et avancer vers des objectifs concrets. Les deux sont complémentaires : si je sens que votre situation demande un suivi psychologique ou médical, je vous le dis et je vous oriente."
+    },
+    {
+      "q": "Les séances peuvent-elles se faire en visio ?",
+      "a": "Oui. Les séances ont lieu au cabinet, avenue Molière 278 à Uccle, ou en visio, avec le même cadre et la même durée. Vous pouvez aussi alterner les deux."
+    },
+    {
+      "q": "En quelle langue se passent les séances ?",
+      "a": "En français ou en néerlandais, comme vous préférez."
+    },
+    {
+      "q": "Quand recevez-vous au cabinet ?",
+      "a": "Du lundi au jeudi de 19 h à 21 h, et le vendredi de 8 h 30 à 14 h."
+    },
+    {
+      "q": "Ce que je partage reste-t-il confidentiel ?",
+      "a": "Oui. Ce qui se dit en séance reste entre nous."
+    },
+    {
+      "q": "Comment prendre rendez-vous ?",
+      "a": "Réservez votre premier entretien en ligne via le bouton « Réserver », écrivez-moi via le formulaire de contact ou appelez-moi au +32 498 47 83 26."
+    }
+  ]
+}

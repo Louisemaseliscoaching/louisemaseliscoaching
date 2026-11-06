@@ -1,0 +1,34 @@
+{
+  "slug": "parentalite",
+  "alt_slug": "ouderschap",
+  "order": 3,
+  "label": "Parentalité & rôles",
+  "title": "Coaching parentalité et équilibre à Uccle et en visio",
+  "description": "Devenir parent, jongler entre vos rôles, vous perdre un peu en route ? Un coaching à Uccle ou en visio pour vous retrouver et trouver votre équilibre.",
+  "eyebrow": "Parentalité · rôles · équilibre",
+  "h1": "Parentalité : se retrouver entre tous ses rôles",
+  "lede": "Parent, partenaire, professionnel·le, ami·e… À force de jongler, on finit parfois par ne plus savoir où l'on est, soi. Le coaching vous offre un temps rien que pour vous.",
+  "sections": [
+    {
+      "title": "Quand on ne se retrouve plus",
+      "text": "L'arrivée d'un enfant, le retour de congé, des enfants qui grandissent, une organisation familiale qui change : ces transitions bousculent l'identité autant que l'agenda.\n\nCe n'est pas un échec. C'est le signe qu'un ajustement est nécessaire — et qu'il est temps de vous remettre au centre.",
+      "bullets": []
+    },
+    {
+      "title": "Un accompagnement centré sur vous",
+      "text": "Maman de deux enfants, je sais combien cette question dépasse le travail : elle touche à qui l'on est, dans tous nos rôles. Ici, l'accompagnement porte sur vous — votre place, votre énergie, vos choix — plutôt que sur des conseils d'éducation.",
+      "bullets": []
+    },
+    {
+      "title": "Ce que nous travaillons ensemble",
+      "text": "",
+      "bullets": [
+        "Faire le point sur vos rôles et la place que vous vous laissez",
+        "Repérer ce qui vous ressource et ce qui vous vide",
+        "Clarifier vos priorités et vos limites, au travail comme à la maison",
+        "Avancer vers un quotidien qui vous ressemble davantage"
+      ]
+    }
+  ],
+  "testimonial": "Violaine M."
+}
