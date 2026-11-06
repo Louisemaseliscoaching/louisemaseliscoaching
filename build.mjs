@@ -42,12 +42,19 @@ const PAGES = [
 
 const readJSON = (p) => (existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : null);
 
-const esc = (s) =>
-  String(s)
+// Langue de la page en cours : en français, espace insécable avant : ; ! ? » et après «,
+// pour que la ponctuation ne passe jamais seule en début de ligne.
+let LANG = 'fr';
+const frTypo = (s) => s.replace(/ ([:;!?»])/g, '\u00a0$1').replace(/« /g, '«\u00a0');
+
+const esc = (s) => {
+  const out = String(s)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+  return LANG === 'fr' ? frTypo(out) : out;
+};
 
 // Trouve la fin d'un élément (balise fermante correspondante), en tenant compte des imbrications.
 function elementEnd(html, openStart, tag) {
@@ -589,6 +596,7 @@ const redirects = ['/nl  /nl.html  200'];
 const sitemap = [{ fr: '/', nl: '/nl' }];
 
 for (const page of PAGES) {
+  LANG = page.lang;
   let html = readFileSync(page.src, 'utf8');
   const site = readJSON(`content/site-${page.lang}.json`) || {};
   html = applyFields(html, site);
@@ -602,6 +610,7 @@ for (const page of PAGES) {
 }
 
 for (const lang of ['fr', 'nl']) {
+  LANG = lang;
   const site = readJSON(`content/site-${lang}.json`) || {};
   const testimonials = readJSON(`content/temoignages-${lang}.json`);
   mkdirSync(join(OUT, 'p', lang), { recursive: true });
