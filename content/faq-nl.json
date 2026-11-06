@@ -1,0 +1,38 @@
+{
+  "title": "Jouw vragen, mijn antwoorden",
+  "intro": "Wat mensen me het vaakst vragen vóór een eerste gesprek.",
+  "items": [
+    {
+      "q": "Hoeveel kost een coachingsessie?",
+      "a": "Een sessie kost € 75. Het eerste gesprek (ongeveer 1 uur) is ook betalend, maar het is gratis als er daarna een begeleiding volgt."
+    },
+    {
+      "q": "Hoe lang duurt een begeleiding?",
+      "a": "Na het eerste gesprek werken we met minstens 3 sessies, volgens jouw behoeften en jouw tempo. Elke sessie duurt tot 1,5 uur. Het totale aantal sessies bepalen we samen, gaandeweg."
+    },
+    {
+      "q": "Wat is het verschil tussen een coach en een psycholoog?",
+      "a": "Een psycholoog is een zorgverlener: hij of zij onderzoekt en behandelt psychisch lijden. In België is die titel beschermd. Een coach begeleidt iemand die een situatie wil verhelderen, opnieuw zin wil vinden en vooruit wil naar concrete doelen. Beide vullen elkaar aan: als ik voel dat jouw situatie psychologische of medische opvolging vraagt, zeg ik het je en verwijs ik je door."
+    },
+    {
+      "q": "Kunnen de sessies online plaatsvinden?",
+      "a": "Ja. De sessies vinden plaats in de praktijk, Molièrelaan 278 in Ukkel, of online, met hetzelfde kader en dezelfde duur. Je kunt ook afwisselen."
+    },
+    {
+      "q": "In welke taal verlopen de sessies?",
+      "a": "In het Nederlands of in het Frans, zoals jij verkiest."
+    },
+    {
+      "q": "Wanneer kan ik in de praktijk terecht?",
+      "a": "Van maandag tot donderdag van 19 tot 21 uur, en op vrijdag van 8.30 tot 14 uur."
+    },
+    {
+      "q": "Blijft wat ik deel vertrouwelijk?",
+      "a": "Ja. Wat er tijdens de sessies gezegd wordt, blijft tussen ons."
+    },
+    {
+      "q": "Hoe maak ik een afspraak?",
+      "a": "Reserveer je eerste gesprek online via de knop „Reserveren”, stuur me een bericht via het contactformulier of bel me op +32 498 47 83 26."
+    }
+  ]
+}

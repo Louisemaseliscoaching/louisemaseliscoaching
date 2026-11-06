@@ -85,6 +85,7 @@
       <a class="hide-sm" href="#pourqui">Voor wie</a>
       <a class="hide-sm" href="#seances">De sessies</a>
       <a class="hide-sm" href="#apropos">Over mij</a>
+      <a class="hide-sm" href="#faq">FAQ</a>
       <div style="display:flex;align-items:center;gap:0;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.06em;flex-shrink:0;">
           <a href="/" style="padding:6px 14px;line-height:1.4;color:var(--ink-soft);text-decoration:none;transition:background .15s;">FR</a>
           <span style="padding:6px 14px;line-height:1.4;background:var(--accent);color:var(--white);">NL</span>
@@ -124,7 +125,7 @@
         <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:28px;">
           <svg width="44" height="44" viewBox="0 0 64 64" style="color:var(--accent);" aria-hidden="true"><path d="M32 6 C47 5 59 17 58 32 C57 47 45 59 30 58 C15 57 5 45 6 30 C7 16 18 5 32 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="currentColor"/></svg>
           <div style="font-family:var(--serif); font-size:clamp(28px,3.4vw,44px); font-weight:500; font-style:italic; line-height:1.25; color:var(--ink); max-width:16ch;">
-            « One must still have chaos in oneself to be able to give birth to a dancing star. »</div>
+            « Men moet nog chaos in zich hebben om een dansende ster te kunnen baren. »</div>
           <div style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin-top:16px;">— Friedrich Nietzsche
           </div>
           <div style="width:48px; height:1.5px; background:var(--accent);"></div>
@@ -209,6 +210,7 @@
         <div class="sun-lg"><svg width="130" height="130" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 C47 5 59 17 58 32 C57 47 45 59 30 58 C15 57 5 45 6 30 C7 16 18 5 32 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="currentColor"/></svg></div>
       </div>
     </div>
+    <div class="themes" id="theme-links"></div>
   </div>
 </section>
 
@@ -365,6 +367,17 @@
 </section>
 
 <!-- ====================== CONTACT ====================== -->
+<section class="section faq-section" id="faq">
+  <div class="wrap">
+    <div class="section__head">
+      <div class="eyebrow">FAQ</div>
+      <h2 data-faq="title"></h2>
+      <p data-faq="intro"></p>
+    </div>
+    <div class="faq" id="faq-list"></div>
+  </div>
+</section>
+
 <section class="section" id="contact">
   <div class="wrap">
     <div class="section__head">
@@ -413,6 +426,7 @@
       <span data-contact="address">Avenue Molière 278, 1180 Uccle</span> · &amp; online
     </div>
   </div>
+  <nav class="wrap foot__themes" id="footer-themes" aria-label="Begeleidingen"></nav>
   <div class="wrap foot__bottom">
     <span>© 2026 Louise Maselis · Coaching &amp; begeleiding bij levenstransities</span>
     <span>Gecertificeerde coach · BAO Academy · NL · FR</span>

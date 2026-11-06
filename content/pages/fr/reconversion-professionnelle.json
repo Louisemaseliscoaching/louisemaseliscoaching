@@ -1,0 +1,34 @@
+{
+  "slug": "reconversion-professionnelle",
+  "alt_slug": "loopbaanverandering",
+  "order": 1,
+  "label": "Reconversion professionnelle",
+  "title": "Coaching reconversion professionnelle à Uccle et en visio",
+  "description": "Votre travail ne vous ressemble plus ? Un coaching de reconversion à Uccle ou en visio pour faire le point, clarifier ce qui vous anime et décider de la suite.",
+  "eyebrow": "Coaching de reconversion · Uccle & visio",
+  "h1": "Reconversion professionnelle : retrouver un travail qui vous ressemble",
+  "lede": "Vous faites bien votre travail, mais il ne vous ressemble plus. Avant de tout changer — ou de ne rien changer — le coaching vous aide à y voir clair et à décider en conscience.",
+  "sections": [
+    {
+      "title": "Quand l'envie de changer s'installe",
+      "text": "Cela commence souvent par une petite voix : le dimanche soir qui pèse, une énergie qui s'émousse, le sentiment d'avoir coché toutes les bonnes cases sans savoir si c'étaient les vôtres.\n\nUne reconversion ne commence pas forcément par une démission. Elle commence par une question : qu'est-ce qui m'anime, moi ? C'est de là que nous partons.",
+      "bullets": []
+    },
+    {
+      "title": "Ce que nous travaillons ensemble",
+      "text": "",
+      "bullets": [
+        "Faire le point sur votre parcours, vos compétences et ce qui vous fatigue aujourd'hui",
+        "Identifier vos moteurs : ce qui vous donne de l'énergie, du sens, de l'élan",
+        "Explorer des pistes concrètes, sans vous enfermer trop vite dans une seule option",
+        "Construire un plan d'action réaliste, qui tient compte de votre vie : finances, timing, famille"
+      ]
+    },
+    {
+      "title": "Ce que le coaching n'est pas",
+      "text": "Je ne vous dirai pas quel métier choisir. Le coaching n'est ni un test d'orientation ni une recette toute faite : c'est un espace pour réfléchir avec méthode et repartir avec vos propres réponses, à votre rythme.",
+      "bullets": []
+    }
+  ],
+  "testimonial": "Sylvie R."
+}

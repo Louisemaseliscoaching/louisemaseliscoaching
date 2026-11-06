@@ -174,3 +174,95 @@ collections:
           - { label: "Instagram", name: "instagram", widget: "string" }
           - { label: "Adresse", name: "address", widget: "string" }
           - { label: "Site web", name: "website", widget: "string" }
+
+      - label: "FAQ (FR)"
+        name: "faq_fr"
+        file: "content/faq-fr.json"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Introduction", name: "intro", widget: "text", required: false }
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.q}}"
+            fields:
+              - { label: "Question", name: "q", widget: "string" }
+              - { label: "Réponse", name: "a", widget: "text" }
+
+      - label: "FAQ (NL)"
+        name: "faq_nl"
+        file: "content/faq-nl.json"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Introductie", name: "intro", widget: "text", required: false }
+          - label: "Vragen"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.q}}"
+            fields:
+              - { label: "Vraag", name: "q", widget: "string" }
+              - { label: "Antwoord", name: "a", widget: "text" }
+
+  - name: "pages_fr"
+    label: "Pages thématiques (FR)"
+    folder: "content/pages/fr"
+    extension: "json"
+    format: "json"
+    create: false
+    delete: false
+    identifier_field: "label"
+    fields: &theme_fields
+      - { label: "Nom court (liens et menu)", name: "label", widget: "string" }
+      - { label: "Adresse de la page (ne pas modifier)", name: "slug", widget: "hidden" }
+      - { label: "Page équivalente dans l'autre langue", name: "alt_slug", widget: "hidden" }
+      - { label: "Ordre", name: "order", widget: "number", required: false }
+      - { label: "Titre Google (≈ 60 caractères)", name: "title", widget: "string" }
+      - { label: "Description Google (≈ 155 caractères)", name: "description", widget: "text" }
+      - { label: "Petite ligne au-dessus du titre", name: "eyebrow", widget: "string" }
+      - { label: "Titre de la page (H1)", name: "h1", widget: "string" }
+      - { label: "Accroche", name: "lede", widget: "text" }
+      - label: "Sections"
+        name: "sections"
+        widget: "list"
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte (laisser une ligne vide entre les paragraphes)", name: "text", widget: "text", required: false }
+          - { label: "Liste à puces", name: "bullets", widget: "list", required: false, field: { label: "Point", name: "point", widget: "string" } }
+      - { label: "Témoignage affiché (prénom exact, ex. « Sylvie R. »), vide = aucun", name: "testimonial", widget: "string", required: false }
+
+  - name: "pages_nl"
+    label: "Themapagina's (NL)"
+    folder: "content/pages/nl"
+    extension: "json"
+    format: "json"
+    create: false
+    delete: false
+    identifier_field: "label"
+    fields: *theme_fields
+
+  - name: "articles_fr"
+    label: "Articles (FR)"
+    folder: "content/articles/fr"
+    extension: "json"
+    format: "json"
+    create: true
+    identifier_field: "title"
+    slug: "{{fields.slug}}"
+    fields: &article_fields
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Adresse (ex. reconversion-par-ou-commencer)", name: "slug", widget: "string", pattern: ["^[a-z0-9-]+$", "Minuscules, chiffres et tirets uniquement"] }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Résumé pour Google (≈ 155 caractères)", name: "description", widget: "text" }
+      - { label: "Texte (## pour un intertitre, - pour une liste, **gras**)", name: "body", widget: "markdown", buttons: ["bold", "link", "heading-two", "heading-three", "bulleted-list"], editor_components: [], modes: ["raw"] }
+      - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: true }
+
+  - name: "articles_nl"
+    label: "Artikels (NL)"
+    folder: "content/articles/nl"
+    extension: "json"
+    format: "json"
+    create: true
+    identifier_field: "title"
+    slug: "{{fields.slug}}"
+    fields: *article_fields

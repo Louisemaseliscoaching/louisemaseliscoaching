@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /p/
+Disallow: /admin/
 
 Sitemap: https://louisemaseliscoaching.be/sitemap.xml

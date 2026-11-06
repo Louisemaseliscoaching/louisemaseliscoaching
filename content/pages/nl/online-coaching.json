@@ -1,0 +1,34 @@
+{
+  "slug": "online-coaching",
+  "alt_slug": "coaching-en-visio",
+  "order": 4,
+  "label": "Online coaching",
+  "title": "Online life coaching in het Nederlands of Frans",
+  "description": "Online life coaching vanuit je eigen huis: dezelfde begeleiding als in de praktijk in Ukkel, in het Nederlands of in het Frans. € 75 per sessie.",
+  "eyebrow": "Online coaching · NL & FR",
+  "h1": "Online life coaching, waar je ook bent",
+  "lede": "Geen tijd om je te verplaatsen, of woon je ver van Ukkel? Online sessies bieden hetzelfde kader en dezelfde aandacht als in de praktijk.",
+  "sections": [
+    {
+      "title": "Voor wie?",
+      "text": "",
+      "bullets": [
+        "Je woont buiten Brussel, of in het buitenland",
+        "Je agenda laat weinig ruimte voor verplaatsingen",
+        "Je voelt je meer op je gemak vanuit je eigen huis",
+        "Je wilt sessies in de praktijk en online afwisselen"
+      ]
+    },
+    {
+      "title": "Hoe verloopt een online sessie",
+      "text": "Je krijgt de link van de sessie op voorhand. Zoek een rustige plek waar je niet gestoord wordt, eventueel met iets om notities te nemen. De sessie heeft dezelfde duur en hetzelfde tarief als in de praktijk.",
+      "bullets": []
+    },
+    {
+      "title": "In het Nederlands of in het Frans",
+      "text": "De sessies verlopen in de taal waarin jij je het best voelt: in het Nederlands of in het Frans.",
+      "bullets": []
+    }
+  ],
+  "testimonial": ""
+}

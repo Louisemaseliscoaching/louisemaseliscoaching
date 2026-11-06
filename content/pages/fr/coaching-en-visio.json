@@ -1,0 +1,34 @@
+{
+  "slug": "coaching-en-visio",
+  "alt_slug": "online-coaching",
+  "order": 4,
+  "label": "Coaching en visio",
+  "title": "Coaching de vie en visio, en français ou néerlandais",
+  "description": "Un coaching de vie en visio, depuis chez vous : le même accompagnement qu'au cabinet d'Uccle, en français ou en néerlandais. 75 € la séance.",
+  "eyebrow": "Coaching en ligne · FR & NL",
+  "h1": "Coaching de vie en visio, où que vous soyez",
+  "lede": "Pas le temps de vous déplacer, ou vous vivez loin d'Uccle ? Les séances en visio offrent le même cadre et la même qualité d'écoute qu'au cabinet.",
+  "sections": [
+    {
+      "title": "Pour qui ?",
+      "text": "",
+      "bullets": [
+        "Vous habitez hors de Bruxelles, ou à l'étranger",
+        "Votre agenda laisse peu de place aux trajets",
+        "Vous vous sentez plus à l'aise depuis chez vous",
+        "Vous souhaitez alterner séances au cabinet et en visio"
+      ]
+    },
+    {
+      "title": "Comment se passe une séance en visio",
+      "text": "Vous recevez le lien de la séance à l'avance. Installez-vous dans un endroit calme où vous ne serez pas dérangé·e, avec de quoi noter si vous le souhaitez. La séance a la même durée et le même tarif qu'au cabinet.",
+      "bullets": []
+    },
+    {
+      "title": "En français ou en néerlandais",
+      "text": "Les séances se déroulent dans la langue où vous vous sentez le plus à l'aise : en français ou en néerlandais.",
+      "bullets": []
+    }
+  ],
+  "testimonial": ""
+}
